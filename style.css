@@ -5,7 +5,7 @@
 }
 
 body{
-  background: #eeeeee;
+  background: #666666;
 }
 //<>
 .tm-container{
@@ -22,6 +22,17 @@ body{
   clear: both;
   display: block;
   visibility: none;
+}
+
+.tm-footer{
+  background: #fff;
+}
+
+.tm-footer::after{
+  content: " ";
+  clear: both;
+  display: block;
+  visiblity: none;
 }
 
 .tm-nav{
@@ -75,4 +86,15 @@ table, th, td{
   background-color: black;
   font-weight: bold;
   color: red;
+}
+
+.section{
+  background-color: #cccccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-align-last: middle;
 }

@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <title>latein-ist-scheiße/Übersetzungen</title>
   <link rel="stylesheet" type="text/css" href="../style.css">
+  <link type="text/js" href="Reader.js">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
@@ -23,5 +24,52 @@
       </nav>
     </div>
   </header>
+  <div>
+    <!--<script type="text/javascript">
+      var reader = new FileReader();
+      function readText(that)
+      {
+        if(that.files && that.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            var output=e.target.result;
+
+            output=output.split("\n").filter(/./.test, /\@/).join("\n");
+
+            document.getElementById('main').innerHTML=output;
+          };
+          reader.readAsDataURL(that.files[0]);
+        }
+      }
+    </script>
+    <input type="file" id="decode" onchange='readText(this)' value="Decode" />
+    <div id="main"></div>-->
+    <script type="text/javascript">
+      var nesne;
+      if(navigator.appName.search('Microsoft')>-1) { nesne = new ActiveXObject('MSXML2.XMLHTTP');}
+      else { nesne = new XMLHttpRequest();}
+
+      yolla();
+
+      function yolla()
+      {
+        nesne.open('get', 'Übersetzungen.txt', true);
+        nesne.onreadystatechange= cevap;
+        nesne.send(null);        
+      }
+
+      function cevap()
+      {
+        if(nesne.readyState==4)
+        {
+          var el = document.getElementById('output');
+
+          el.innerHTML = nesne.responseText;
+        }
+      }
+    </script>
+  </div>
 </body>
+<!--<input type="button" value="Übersetungen.txt dosyadaki yaz&#305;y&#305; buraya al" onclick="yolla()">-->
+<div class="section"><pre id="output"></pre></div>
 </html>
